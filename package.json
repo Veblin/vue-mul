@@ -1,0 +1,9 @@
+{
+    "name": "vue-mul",
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Vue Template with ElementUI,ESlint",
+    "devDependencies": {
+      "vue-cli": "^2.8.1"
+    }
+}
