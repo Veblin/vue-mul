@@ -1,5 +1,4 @@
-import Vue from 'vue'
-import ElementUI from 'element-ui'
+import Vue from 'vue'{{#airbnb}};{{/airbnb}}
+import ElementUI from 'element-ui'{{#airbnb}};{{/airbnb}}
 
-Vue.use(ElementUI)
-
+Vue.use(ElementUI){{#airbnb}};{{/airbnb}}

@@ -3,10 +3,9 @@ const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const url = require('url')
 const publicPath = ''
+// automatically open browser, if not set will be false
+const port = 8010
 
-// function resolve (dir) {
-//     return path.join(__dirname, '..', dir)
-// }
 
 module.exports = (options = {}) => ({
   entry: {
@@ -22,14 +21,25 @@ module.exports = (options = {}) => ({
   module: {
     rules: [{
         test: /\.vue$/,
-        use: ['vue-loader']
+        loader: 'vue-loader',
+        options:{
+          loaders:{
+            {{#sass}}
+            // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
+            // the "scss" and "sass" values for the lang attribute to the right configs here.
+            // other preprocessors should work out of the box, no loader config like this necessary.
+            'scss': 'vue-style-loader!css-loader!sass-loader',
+            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+            {{/sass}}
+          }
+        }
       },
       //lint
       {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
         enforce: 'pre',
-        include: [resolve('src'), resolve('test')],
+        include: [resolve('src')],
         options: {
           formatter: require('eslint-friendly-formatter')
         }
@@ -65,20 +75,24 @@ module.exports = (options = {}) => ({
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'manifest']
+      names: ['vendor']
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     })
   ],
   resolve: {
-    alias: {
-      '~': resolve(__dirname, 'src')
+      extensions: [".js", ".json"],
+    alias: { // 路径简写字典
+      '~': resolve(__dirname, 'src/'),
+      {{#mock}}
+      'Mock':resolve(__dirname, 'mock/')
+      {{/mock}}
     }
   },
   devServer: {
     host: '127.0.0.1',
-    port: 8010,
+    port: port,
     proxy: {
       '/api/': {
         target: 'http://127.0.0.1:8080',

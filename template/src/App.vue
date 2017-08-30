@@ -10,7 +10,7 @@
 export default {
   data () {
     return {
-      msg: 'Want something new?'
+      msg: 'Want something new en?'
     }
   },
 

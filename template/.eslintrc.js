@@ -9,11 +9,12 @@ module.exports = {
     env: {
       browser: true,
     },
-    extends: 'vue',
     // required to lint *.vue files
     plugins: [
       'html'
     ],
+    {{#airbnb}}
+    extends: 'airbnb-base',
     // check if imports actually resolve
     'settings': {
       'import/resolver': {
@@ -22,8 +23,10 @@ module.exports = {
         }
       }
     },
+    {{/airbnb}}
     // add your custom rules here
     'rules': {
+        "no-unused-expressions":0,
         // jsdoc valid
         "valid-jsdoc": ["error", {
             "requireReturn": true,
@@ -39,7 +42,11 @@ module.exports = {
                   "ClassDeclaration": true
               }
           }],
+          'import/extensions': ['error', 'always', {
+            'js': 'never',
+            'vue': 'never',
+            'axios': 'never'
+          }],
       'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
     }
   }
-  

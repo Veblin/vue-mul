@@ -15,18 +15,15 @@ module.exports = {
         'type': 'string',
         'message': 'Author'
       },
-      'less': {
+      'airbnb':{
         'type': 'confirm',
-        'message': 'Use Less?'
+        'message': 'Use Airbnb ? (https://github.com/airbnb/javascript)',
+        "default": false
       },
       'sass': {
         'type': 'confirm',
         'message': 'Use Sass?'
       },
-      'echart': {
-        'type': 'confirm',
-        'message': 'Use eChart?'
-      }
     },
     'completeMessage': 'To get started:\n\n  {{^inPlace}}cd {{destDirName}}\n  {{/inPlace}}npm install\n  npm run dev\n\nDocumentation can be found at https://github.com/Veblin/vue-mul'
   }
