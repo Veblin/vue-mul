@@ -24,19 +24,19 @@ vue init Veblin/vue-mul my-project
 
 `npm run dev`: first-in-class development experience.
 
-Webpack + `vue-loader` for single file Vue components.
-State preserving hot-reload
-State preserving compilation error overlay
-Lint-on-save with ESLint
-Source maps
+- Webpack + `vue-loader` for single file Vue components.
+- State preserving hot-reload
+- State preserving compilation error overlay
+- Lint-on-save with ESLint
+- Source maps
 
 `npm run build`: Production ready build.
 
-JavaScript minified with UglifyJS.
-HTML minified with html-minifier.
-CSS across all components extracted into a single file and minified with cssnano.
-All static assets compiled with version hashes for efficient long-term caching, and a production index.html is auto-generated with proper URLs to these generated assets.
-Use npm run build --reportto build with bundle size analytics.
+- JavaScript minified with UglifyJS.
+- HTML minified with html-minifier.
+- CSS across all components extracted into a single file and minified with cssnano.
+- All static assets compiled with version hashes for efficient long-term caching, and a production - index.html is auto-generated with proper URLs to these generated assets.
+- Use npm run build --reportto build with bundle size analytics.
 
 ## TODO
 
