@@ -24,13 +24,14 @@ module.exports = (options = {}) => ({
         loader: 'vue-loader',
         options:{
           loaders:{
-            {{#sass}}
+            {{#scss}}
             // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
             // the "scss" and "sass" values for the lang attribute to the right configs here.
             // other preprocessors should work out of the box, no loader config like this necessary.
             'scss': 'vue-style-loader!css-loader!sass-loader',
-            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
-            {{/sass}}
+            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
+            'less':'vue-style-loader!css-loader!less-loader'
+            {{/scss}}
           }
         }
       },
@@ -86,16 +87,18 @@ module.exports = (options = {}) => ({
     alias: { // 路径简写字典
       '~': resolve(__dirname, 'src/'),
       {{#mock}}
+      // mock 目录路径缩写 Mock
       'Mock':resolve(__dirname, 'mock/')
       {{/mock}}
     }
   },
   devServer: {
-    host: '127.0.0.1',
+    host: '127.0.0.1', 
     port: port,
     proxy: {
+      // API 跨域转发配置
       '/api/': {
-        target: 'http://127.0.0.1:8080',
+        target: 'http://127.0.0.1:8080', // 接口跨域目标 url
         changeOrigin: true,
         pathRewrite: {
           '^/api': ''
