@@ -27,6 +27,7 @@ module.exports = {
     // add your custom rules here
     'rules': {
         "no-unused-expressions":0,
+        'no-unused-vars':1,
         // jsdoc valid
         "valid-jsdoc": ["error", {
             "requireReturn": true,

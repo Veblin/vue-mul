@@ -3,5 +3,11 @@
     ["env", { "modules": false }],
     "stage-2"
   ],
-  "comments": false
+  "comments": false,
+  "plugins": [["component", [
+    {
+      "libraryName": "element-ui",
+      "styleLibraryName": "theme-default"
+    }
+  ]]]
   }

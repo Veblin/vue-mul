@@ -4,7 +4,8 @@
 - ElementUI 2.x
 - Webpack 2.x
 - Eslint Airbnb（可选） 
-- vue 2.x
+- Vue 2.x
+- Vue Router
 - mul pages
 - Sass or Less （可选） 
 - Mockjs （可选） 
@@ -37,6 +38,23 @@ vue init Veblin/vue-mul my-project
 - CSS across all components extracted into a single file and minified with cssnano.
 - All static assets compiled with version hashes for efficient long-term caching, and a production - index.html is auto-generated with proper URLs to these generated assets.
 - Use npm run build --reportto build with bundle size analytics.
+
+## 编辑器配置
+### Eslint 自动修复
+- VSCode 安装 `Eslint`
+- 在用户配置中添加如下
+
+``` javascript
+"eslint.validate": [
+		"javascript",
+		"javascriptreact",
+		{ "language": "html", 
+			"autoFix": true } ,
+		{ "language": "vue", 
+			"autoFix": true } 
+	]
+```
+
 
 ## TODO
 
