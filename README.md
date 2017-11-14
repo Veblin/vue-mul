@@ -15,6 +15,12 @@
 [element-starter](https://github.com/ElementUI/element-starter)
 
 ## Use 
+安装 [vue-cli](https://github.com/vuejs/vue-cli)
+
+``` bash
+npm install -g vue-cli
+```
+
 ``` bash
 vue init Veblin/vue-mul my-project
 ```
