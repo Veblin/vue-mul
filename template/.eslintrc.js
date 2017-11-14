@@ -11,7 +11,11 @@ module.exports = {
     },
     // required to lint *.vue files
     plugins: [
+      {{#airbnb}}
       'html'
+      {{else}}
+      'html','import'
+      {{/airbnb}}
     ],
     {{#airbnb}}
     extends: 'airbnb-base',
