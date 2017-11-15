@@ -1,6 +1,6 @@
 import Vue from 'vue'{{#airbnb}};{{/airbnb}}
 import ElementUI from 'element-ui'{{#airbnb}};{{/airbnb}}
-import 'element-ui/lib/theme-default/index.css'{{#airbnb}};{{/airbnb}}
+import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue'{{#airbnb}};{{/airbnb}}
 
 Vue.use(ElementUI){{#airbnb}};{{/airbnb}}
