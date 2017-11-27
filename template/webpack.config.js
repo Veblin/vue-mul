@@ -55,6 +55,16 @@ module.exports = (options = {}) => ({
         test: /\.css$/,
         use: ['style-loader', 'css-loader', 'postcss-loader']
       },
+      {{#scss}}
+      {
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader']
+      },
+      {
+        test: /\.less$/,
+        use: ['style-loader', 'css-loader', 'less-loader', 'postcss-loader']
+      },
+      {{/scss}}
       {
         test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
         use: [{

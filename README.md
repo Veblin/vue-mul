@@ -3,18 +3,18 @@
 ## Done
 - ElementUI 2.x
 - Webpack 2.x
-- Eslint Airbnb（可选） 
+- Eslint Airbnb（可选）
 - Vue 2.x
 - Vue Router
 - mul pages
-- Sass or Less （可选） 
-- Mockjs （可选） 
+- Sass or Less （可选）
+- Mockjs （可选）
 - Axios
 
 ## Refer
 [element-starter](https://github.com/ElementUI/element-starter)
 
-## Use 
+## Use
 安装 [vue-cli](https://github.com/vuejs/vue-cli)
 
 ``` bash
@@ -25,7 +25,7 @@ npm install -g vue-cli
 vue init Veblin/vue-mul my-project
 ```
 
-## Included 
+## Included
 
 参考：https://github.com/vuejs-templates/webpack
 
@@ -52,13 +52,13 @@ vue init Veblin/vue-mul my-project
 
 ``` javascript
 "eslint.validate": [
-		"javascript",
-		"javascriptreact",
-		{ "language": "html", 
-			"autoFix": true } ,
-		{ "language": "vue", 
-			"autoFix": true } 
-	]
+	"javascript",
+	"javascriptreact",
+	{ "language": "html",
+		"autoFix": true } ,
+	{ "language": "vue",
+		"autoFix": true }
+]
 ```
 
 
