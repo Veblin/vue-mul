@@ -1,7 +1,8 @@
-const resolve = require('path').resolve
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const url = require('url')
+const resolve = require('path').resolve;
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const url = require('url');
 const publicPath = ''
 // automatically open browser, if not set will be false
 const port = 8010
@@ -9,7 +10,7 @@ const port = 8010
 
 module.exports = (options = {}) => ({
   entry: {
-    vendor: './src/vendor',
+    // vendor: './src/vendor',
     index: './src/main.js'
   },
   output: {
@@ -53,17 +54,23 @@ module.exports = (options = {}) => ({
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader']
+        // use: ['style-loader', 'css-loader', 'postcss-loader']
+        loader: ExtractTextPlugin.extract(
+          { fallback: 'style-loader', use: 'css-loader' }
+        )
       },
       {{#scss}}
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader']
+        // use: ['style-loader', 'css-loader', 'sass-loader', 'postcss-loader']
+        loader: ExtractTextPlugin.extract(
+          { fallback: 'style-loader', use: 'css-loader!sass-loader' }
+        )
       },
-      {
-        test: /\.less$/,
-        use: ['style-loader', 'css-loader', 'less-loader', 'postcss-loader']
-      },
+      // {
+      //   test: /\.less$/,
+      //   use: ['style-loader', 'css-loader', 'less-loader', 'postcss-loader']
+      // },
       {{/scss}}
       {
         test: /\.(png|jpg|jpeg|gif|eot|ttf|woff|woff2|svg|svgz)(\?.+)?$/,
@@ -89,8 +96,17 @@ module.exports = (options = {}) => ({
       names: ['vendor']
     }),
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
-    })
+      template: 'src/index.html',
+      inject: true,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+        // more options:
+        // https://github.com/kangax/html-minifier#options-quick-reference
+      }
+    }),
+    new ExtractTextPlugin("[name].css?[chunkhash]")
   ],
   resolve: {
       extensions: [".js", ".json"],
