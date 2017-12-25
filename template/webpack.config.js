@@ -125,10 +125,7 @@ module.exports = (options = {}) => ({
       // API 跨域转发配置
       '/api/': {
         target: 'http://127.0.0.1:8080', // 接口跨域目标 url
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api': ''
-        }
+        changeOrigin: true
       }
     },
     historyApiFallback: {
