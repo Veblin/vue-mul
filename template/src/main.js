@@ -1,13 +1,19 @@
-import Vue from 'vue'{{#airbnb}};{{/airbnb}}
-import ElementUI from 'element-ui'{{#airbnb}};{{/airbnb}}
-import 'element-ui/lib/theme-chalk/index.css'{{#airbnb}};{{/airbnb}}
-import App from './App.vue'{{#airbnb}};{{/airbnb}}
+import Vue from 'vue';
+import {
+  Row,
+  Col, 
+} from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import App from './App.vue';
 
-Vue.use(ElementUI){{#airbnb}};{{/airbnb}}
-{{#airbnb}}
+Vue.use(Row);
+Vue.use(Col);
+
 /* eslint-disable no-new */
-{{/airbnb}}
 new Vue({
   el: '#app',
-  render: h => h(App){{#airbnb}},{{/airbnb}}
-}){{#airbnb}};{{/airbnb}}
+  render: h => h(App),
+});
+
+// use vue devtools
+Vue.config.devtools = process.env.NODE_ENV === 'production';
