@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import {
   Row,
-  Col, 
+  Col,
 } from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import App from './App.vue';
