@@ -4,6 +4,6 @@
     "license": "MIT",
     "description": "Vue Template with ElementUI,ESlint",
     "devDependencies": {
-      "vue-cli": "^2.8.1"
+      "vue-cli": "^2.9.3"
     }
 }

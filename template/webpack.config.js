@@ -50,7 +50,11 @@ module.exports = (options = {}) => ({
         test: /\.js$/,
         use: ['babel-loader'],
         // exclude: /node_modules/
-        include: [resolve('src')]
+        include: [
+          resolve('src'),
+          resolve('node_modules/vue-echarts'), // vue-echarts config
+          resolve('node_modules/resize-detector') // vue-echarts config
+        ]
       },
       {
         test: /\.css$/,
@@ -94,6 +98,11 @@ module.exports = (options = {}) => ({
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor']
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',

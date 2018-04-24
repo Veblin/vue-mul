@@ -15,14 +15,14 @@ module.exports = {
         'type': 'string',
         'message': 'Author'
       },
-      'airbnb':{
-        'type': 'confirm',
-        'message': 'Use Airbnb ? (https://github.com/airbnb/javascript)',
-        "default": false
-      },
       'scss': {
         'type': 'confirm',
         'message': 'Use Sass or Less?'
+      },
+      'vue-echarts': {
+        'type': 'confirm',
+        'message': 'Use Vue-echarts?',
+        "default": false
       },
       'mock': {
         'type': 'confirm',
